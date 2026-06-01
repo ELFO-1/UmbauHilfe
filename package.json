@@ -1,0 +1,18 @@
+{
+  "name": "wieland_umbau",
+  "version": "1.0.0",
+  "description": "Nachschlage- und Pflege-Tool für die Umbau-/Einstelldaten der Schumag-Anlagen (Rund-, Profil- und Spezialschumag). Die beiden früheren Projekte (HTML+CSV und Python+SQLite) sind jetzt **ein** Programm mit **einer** Datenbank.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@capacitor/android": "^8.3.4",
+    "@capacitor/cli": "^8.3.4",
+    "@capacitor/core": "^8.3.4"
+  }
+}

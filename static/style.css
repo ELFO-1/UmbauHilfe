@@ -1,0 +1,92 @@
+* { box-sizing: border-box; }
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #575757;
+    color: #222;
+    margin: 0;
+    padding: 0;
+}
+
+#banner {
+    background-color: #CD3700;
+    color: white;
+    padding: 18px 20px;
+    text-align: center;
+}
+#banner h1 { margin: 0; font-size: 1.6rem; }
+#banner a { color: #ffe; font-size: 0.9rem; }
+
+.container { max-width: 1000px; margin: 0 auto; padding: 16px; }
+
+/* Buttons */
+button {
+    background-color: #28A745;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+button:hover { background-color: #1e7e34; }
+button.sekundaer { background-color: #6c757d; }
+button.sekundaer:hover { background-color: #545b62; }
+button.gefahr { background-color: #c0392b; }
+button.gefahr:hover { background-color: #962d22; }
+
+.button-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin: 20px 0;
+}
+.button-grid a { flex: 1 1 200px; max-width: 280px; text-decoration: none; }
+.button-grid a button { width: 100%; padding: 22px; font-size: 1.1rem; }
+
+/* Suche */
+.suche { display: flex; gap: 8px; margin: 16px 0; }
+.suche input { flex: 1; padding: 10px; font-size: 1rem; border: 1px solid #999; border-radius: 5px; }
+
+/* Tabs */
+.tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.tabs button { background-color: #495057; }
+.tabs button.aktiv { background-color: #28A745; }
+
+/* Karten */
+.karte {
+    background: white;
+    border-radius: 6px;
+    padding: 16px;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+}
+.karte h3 { margin: 0 0 8px; color: #CD3700; }
+.karte pre {
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-family: inherit;
+    margin: 0 0 10px;
+}
+.karte .meta { color: #777; font-size: 0.8rem; margin-bottom: 8px; }
+.karte .aktionen { display: flex; gap: 8px; }
+
+/* Formular */
+.formular {
+    background: #f1f1f1;
+    border: 2px solid #28A745;
+    border-radius: 6px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+.formular h3 { margin-top: 0; }
+.formular label { display: block; margin: 8px 0 2px; font-weight: bold; font-size: 0.9rem; }
+.formular input, .formular textarea {
+    width: 100%; padding: 8px; border: 1px solid #999; border-radius: 4px; font-size: 0.95rem;
+}
+.formular textarea { min-height: 90px; }
+.formular .aktionen { margin-top: 12px; display: flex; gap: 8px; }
+
+.hinweis { color: #ffe; text-align: center; padding: 20px; }
+.gruppe-titel { color: #fff; margin: 18px 0 4px; }

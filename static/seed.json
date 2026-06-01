@@ -1,0 +1,437 @@
+{
+  "config": {
+    "anlagen": {
+      "ZG25": {
+        "gruppe": "Rundschumag",
+        "kategorien": [
+          "durchmesser",
+          "allgemeine_infos"
+        ]
+      },
+      "ZG23": {
+        "gruppe": "Rundschumag",
+        "kategorien": [
+          "durchmesser",
+          "allgemeine_infos"
+        ]
+      },
+      "ZG24": {
+        "gruppe": "Rundschumag",
+        "kategorien": [
+          "durchmesser",
+          "allgemeine_infos"
+        ]
+      },
+      "ZG21": {
+        "gruppe": "Rundschumag",
+        "kategorien": [
+          "durchmesser",
+          "allgemeine_infos"
+        ]
+      },
+      "ZG19": {
+        "gruppe": "Profilschumag",
+        "kategorien": [
+          "profile",
+          "flachkant",
+          "vierkant",
+          "allgemeine_infos"
+        ]
+      },
+      "ZG26": {
+        "gruppe": "Profilschumag",
+        "kategorien": [
+          "profile",
+          "flachkant",
+          "vierkant",
+          "allgemeine_infos"
+        ]
+      },
+      "ZG10": {
+        "gruppe": "Spezialschumag",
+        "kategorien": [
+          "ring_auf_stange",
+          "ring_auf_ring",
+          "allgemeine_infos"
+        ]
+      }
+    },
+    "kategorien": {
+      "durchmesser": {
+        "label": "Durchmesser",
+        "key": "durchmesser",
+        "anlage": true,
+        "felder": [
+          "Schweißdaten",
+          "Hämmerbacken",
+          "Einstoßbacken",
+          "Ziehstein",
+          "Einlaufdüse",
+          "Ziehbacken",
+          "Trichter",
+          "Wirbelstrom",
+          "Ultraschall",
+          "Scherenmesser",
+          "Rollen",
+          "Rohrkasten",
+          "Rohre",
+          "Lineale",
+          "Stempel",
+          "Sonstige Infos"
+        ]
+      },
+      "profile": {
+        "label": "Profile",
+        "key": "bezeichnung",
+        "anlage": true,
+        "felder": null
+      },
+      "flachkant": {
+        "label": "Flachkant",
+        "key": "bezeichnung",
+        "anlage": true,
+        "felder": null
+      },
+      "vierkant": {
+        "label": "Vierkant",
+        "key": "bezeichnung",
+        "anlage": true,
+        "felder": null
+      },
+      "ring_auf_stange": {
+        "label": "Ring auf Stange",
+        "key": "typ",
+        "anlage": true,
+        "felder": null
+      },
+      "ring_auf_ring": {
+        "label": "Ring auf Ring",
+        "key": "typ",
+        "anlage": true,
+        "felder": null
+      },
+      "allgemeine_infos": {
+        "label": "Allgemeine Infos",
+        "key": "titel",
+        "anlage": true,
+        "felder": null
+      },
+      "sonderlegierungen": {
+        "label": "Sonderlegierungen",
+        "key": "name",
+        "anlage": false,
+        "felder": [
+          "Allgemeine Infos",
+          "Schmierung",
+          "Stempel",
+          "Spezielle Ziehsteine"
+        ]
+      }
+    },
+    "globale_kategorien": [
+      "sonderlegierungen"
+    ]
+  },
+  "eintraege": [
+    {
+      "kategorie": "durchmesser",
+      "key": "19",
+      "infos": "Schweißdaten: \nHämmerbacken: 18 wenn nötig (pressmaß über 2mm) oder bei sonderlegierungen\nEinstoßbacken: 22 - 25\nZiehstein: \nEinlaufdüse: 21\nZiehbacken: 18-22\nTrichter: ja\nWirbelstrom: 2,5 mmm größer\nUltraschall: die letzten 2 2mm kleiner\nScherenmesser: 19 oder 20\nRollen: \nRohrkasten: Grüner Rohrkasten (30er)\nRohre: Grüne Rohre (30er)\nLineale: 15\nStempel: W außer bei SW1 da SW1 Stempel verwenden\nSonstige Infos: ",
+      "updated": "2025-03-10 15:11:09",
+      "anlage": "ZG21"
+    },
+    {
+      "kategorie": "durchmesser",
+      "key": "19",
+      "infos": "Schweißdaten: \nHämmerbacken: 18\nEinstoßbacken: \nZiehstein: \nEinlaufdüse: \nZiehbacken: 16,5 - 20\nTrichter: \nWirbelstrom: \nUltraschall: \nScherenmesser: 19 -20\nRollen: \nRohrkasten: Roter Rohrkasten (25er)\nRohre: Rote Rohre (25er)\nLineale: 15\nStempel: \nSonstige Infos: ",
+      "updated": "2025-03-10 15:15:23",
+      "anlage": "ZG24"
+    },
+    {
+      "kategorie": "durchmesser",
+      "key": "20",
+      "infos": "Schweißdaten: \nHämmerbacken: 19 wenn nötig (pressmaß über 2mm) oder bei sonderlegierungen\nEinstoßbacken: 22 - 25\nZiehstein: \nEinlaufdüse: 22\nZiehbacken: 18-22\nTrichter: ja\nWirbelstrom: 2,5 mmm größer\nUltraschall: die letzten 2 2mm kleiner\nScherenmesser: 20 oder 21\nRollen: \nRohrkasten: Grüner Rohrkasten (30er)\nRohre: Grüne Rohre (30er)\nLineale: 15\nStempel: W außer bei SW1 da SW1 Stempel verwenden\nSonstige Infos: ",
+      "updated": "2025-03-10 15:52:17",
+      "anlage": "ZG21"
+    },
+    {
+      "kategorie": "durchmesser",
+      "key": "21",
+      "infos": "Schweißdaten: \nHämmerbacken: 18 wenn nötig (pressmaß über 2mm) oder bei sonderlegierungen\nEinstoßbacken: 22 - 25\nZiehstein: \nEinlaufdüse: 23\nZiehbacken: 18-22\nTrichter: ja\nWirbelstrom: 2,5 mmm größer\nUltraschall: die letzten 2 2mm kleiner\nScherenmesser: 21 oder 22\nRollen: \nRohrkasten: Grüner Rohrkasten (30er)\nRohre: Grüne Rohre (30er)\nLineale: 15\nStempel: W außer bei SW1 da SW1 Stempel verwenden\nSonstige Infos: ",
+      "updated": "2025-03-10 15:56:34",
+      "anlage": "ZG21"
+    },
+    {
+      "kategorie": "durchmesser",
+      "key": "22",
+      "infos": "Schweißdaten: \nHämmerbacken: 18 wenn nötig (pressmaß über 2mm) oder bei sonderlegierungen\nEinstoßbacken: 22 - 25\nZiehstein: \nEinlaufdüse: 24\nZiehbacken: 18-22\nTrichter: ja\nWirbelstrom: 2,5 mmm größer\nUltraschall: die letzten 2 2mm kleiner\nScherenmesser: 22 oder 23\nRollen: \nRohrkasten: Grüner Rohrkasten (30er)\nRohre: Grüne Rohre (30er)\nLineale: 15\nStempel: W außer bei SW1 da SW1 Stempel verwenden\nSonstige Infos: ",
+      "updated": "2025-03-10 15:58:30",
+      "anlage": "ZG21"
+    },
+    {
+      "kategorie": "durchmesser",
+      "key": "23",
+      "infos": "Schweißdaten: \nHämmerbacken: 18 wenn nötig (pressmaß über 2mm) oder bei sonderlegierungen\nEinstoßbacken: 22 - 25  bzw nach pressmaß\nZiehstein: \nEinlaufdüse: 25\nZiehbacken: 22-26\nTrichter: ja\nWirbelstrom: 2,5 mmm größer\nUltraschall: die letzten 2 2mm kleiner\nScherenmesser: 23 oder 24\nRollen: \nRohrkasten: Grüner Rohrkasten (30er)\nRohre: Grüne Rohre (30er)\nLineale: 18\nStempel: W außer bei SW1 da SW1 Stempel verwenden\nSonstige Infos: ",
+      "updated": "2025-03-10 15:59:37",
+      "anlage": "ZG21"
+    },
+    {
+      "kategorie": "durchmesser",
+      "key": "24",
+      "infos": "Schweißdaten: \nHämmerbacken: 23 wenn nötig (pressmaß über 2mm) oder bei sonderlegierungen\nEinstoßbacken: 22 - 25  oder 25 - 28  bzw nach pressmaß\nZiehstein: \nEinlaufdüse: 26\nZiehbacken: 22-26\nTrichter: ja\nWirbelstrom: 2,5 mmm größer\nUltraschall: die letzten 2 2mm kleiner\nScherenmesser: 24 oder 25\nRollen: \nRohrkasten: Grüner Rohrkasten (30er)\nRohre: Grüne Rohre (30er)\nLineale: 18\nStempel: W außer bei SW1 da SW1 Stempel verwenden\nSonstige Infos: ",
+      "updated": "2025-03-10 16:03:16",
+      "anlage": "ZG21"
+    },
+    {
+      "kategorie": "durchmesser",
+      "key": "25",
+      "infos": "Schweißdaten: \nHämmerbacken: 24 wenn nötig (pressmaß über 2mm) oder bei sonderlegierungen\nEinstoßbacken: 25 - 28  bzw nach pressmaß\nZiehstein: \nEinlaufdüse: 27\nZiehbacken: 22-26\nTrichter: ja\nWirbelstrom: 2,5 mmm größer\nUltraschall: die letzten 2 2mm kleiner\nScherenmesser: 25 oder 26\nRollen: \nRohrkasten: Roter Rohrkasten (35er)\nRohre: Rote Rohre (35er)\nLineale: 18\nStempel: W außer bei SW1 da SW1 Stempel verwenden\nSonstige Infos: ",
+      "updated": "2025-03-10 16:10:15",
+      "anlage": "ZG21"
+    },
+    {
+      "kategorie": "durchmesser",
+      "key": "26",
+      "infos": "Schweißdaten: \nHämmerbacken: 25 wenn nötig (pressmaß über 2mm) oder bei sonderlegierungen\nEinstoßbacken: 25 - 28  bzw nach pressmaß\nZiehstein: \nEinlaufdüse: 28\nZiehbacken: 22-26\nTrichter: ja\nWirbelstrom: 2,5 mmm größer\nUltraschall: die letzten 2 2mm kleiner\nScherenmesser: 26 oder 27\nRollen: \nRohrkasten: Roter Rohrkasten (35er)\nRohre: Rote Rohre (35er)\nLineale: 18\nStempel: W außer bei SW1 da SW1 Stempel verwenden\nSonstige Infos: ",
+      "updated": "2025-03-10 16:22:35",
+      "anlage": "ZG21"
+    },
+    {
+      "kategorie": "durchmesser",
+      "key": "27",
+      "infos": "Schweißdaten: \nHämmerbacken: 26 wenn nötig (pressmaß über 2mm) oder bei sonderlegierungen\nEinstoßbacken: 28-31  bzw nach pressmaß\nZiehstein: \nEinlaufdüse: 28\nZiehbacken: 26-30\nTrichter: nein\nWirbelstrom: 2,5 mmm größer\nUltraschall: die letzten 2 2mm kleiner\nScherenmesser: 27 oder 28\nRollen: \nRohrkasten: Roter Rohrkasten (35er)\nRohre: Rote Rohre (35er)\nLineale: 18\nStempel: W außer bei SW1 da SW1 Stempel verwenden\nSonstige Infos: ",
+      "updated": "2025-03-10 16:26:36",
+      "anlage": "ZG21"
+    },
+    {
+      "kategorie": "durchmesser",
+      "key": "28",
+      "infos": "Schweißdaten: \nHämmerbacken: 27 wenn nötig (pressmaß über 2mm) oder bei sonderlegierungen\nEinstoßbacken: 28-31 bzw nach pressmaß\nZiehstein: \nEinlaufdüse: 30\nZiehbacken: 26-30\nTrichter: nein\nWirbelstrom: 2,5 mmm größer\nUltraschall: die letzten 2 2mm kleiner\nScherenmesser: 29 oder 30\nRollen: \nRohrkasten: Roter Rohrkasten (35er)\nRohre: Blaue Rohre (40er)\nLineale: 21\nStempel: W außer bei SW1 da SW1 Stempel verwenden\nSonstige Infos: ",
+      "updated": "2025-03-10 16:34:07",
+      "anlage": "ZG21"
+    },
+    {
+      "kategorie": "durchmesser",
+      "key": "29",
+      "infos": "Schweißdaten: \nHämmerbacken: 28 wenn nötig (pressmaß über 2mm) oder bei sonderlegierungen\nEinstoßbacken: 28-31 bzw nach pressmaß\nZiehstein: \nEinlaufdüse: 31\nZiehbacken: 26-30\nTrichter: nein\nWirbelstrom: 2,5 mmm größer\nUltraschall: die letzten 2 2mm kleiner\nScherenmesser: 29 oder 30\nRollen: \nRohrkasten: Roter Rohrkasten (35er)\nRohre: Blaue Rohre (40er)\nLineale: 21\nStempel: W außer bei SW1 da SW1 Stempel verwenden\nSonstige Infos: ",
+      "updated": "2025-03-10 16:42:43",
+      "anlage": "ZG21"
+    },
+    {
+      "kategorie": "durchmesser",
+      "key": "30",
+      "infos": "Schweißdaten: \nHämmerbacken: 29 wenn nötig (pressmaß über 2mm) oder bei sonderlegierungen\nEinstoßbacken: 28-31 bzw nach pressmaß\nZiehstein: \nEinlaufdüse: 32\nZiehbacken: 26-30  oder  30-34\nTrichter: nein\nWirbelstrom: 2,5 mmm größer\nUltraschall: die letzten 2 2mm kleiner\nScherenmesser: 30 oder 31\nRollen: \nRohrkasten: Roter Rohrkasten (35er)\nRohre: Blaue Rohre (40er)\nLineale: oben 21er Lineal und unten 24 Lineal\nStempel: W außer bei SW1 da SW1 Stempel verwenden\nSonstige Infos: ",
+      "updated": "2025-03-10 16:44:26",
+      "anlage": "ZG21"
+    },
+    {
+      "kategorie": "durchmesser",
+      "key": "31",
+      "infos": "Schweißdaten: \nHämmerbacken: 30 wenn nötig (pressmaß über 2mm) oder bei sonderlegierungen\nEinstoßbacken: 31-34 bzw nach pressmaß\nZiehstein: \nEinlaufdüse: 33\nZiehbacken: 30-34\nTrichter: nein\nWirbelstrom: 2,5 mmm größer\nUltraschall: die letzten 2 2mm kleiner\nScherenmesser: 31 oder 32\nRollen: \nRohrkasten: Roter Rohrkasten (35er)\nRohre: Blaue Rohre (40er)\nLineale: oben 21er Lineal und unten 24 Lineal\nStempel: W außer bei SW1 da SW1 Stempel verwenden\nSonstige Infos: ",
+      "updated": "2025-03-10 16:46:50",
+      "anlage": "ZG21"
+    },
+    {
+      "kategorie": "durchmesser",
+      "key": "32",
+      "infos": "Schweißdaten: \nHämmerbacken: 31 wenn nötig (pressmaß über 2mm) oder bei sonderlegierungen\nEinstoßbacken: 31-34 bzw nach pressmaß\nZiehstein: \nEinlaufdüse: 34\nZiehbacken: 30-34 oder 32-36\nTrichter: nein\nWirbelstrom: 2,5 mmm größer\nUltraschall: die letzten 2 2mm kleiner\nScherenmesser: 32 oder 33\nRollen: \nRohrkasten: Gelber Rohrkasten (45er)\nRohre: Gelbe Rohre (45er)\nLineale: 24\nStempel: W außer bei SW1 da SW1 Stempel verwenden\nSonstige Infos: ",
+      "updated": "2025-03-10 16:50:26",
+      "anlage": "ZG21"
+    },
+    {
+      "kategorie": "durchmesser",
+      "key": "33",
+      "infos": "Schweißdaten: \nHämmerbacken: 32 wenn nötig (pressmaß über 2mm) oder bei sonderlegierungen\nEinstoßbacken: 34-37 bzw nach pressmaß\nZiehstein: \nEinlaufdüse: 35\nZiehbacken: 30-34 oder 32-36\nTrichter: nein\nWirbelstrom: 2,5 mmm größer\nUltraschall: die letzten 2 2mm kleiner\nScherenmesser: 33 oder 34\nRollen: \nRohrkasten: Gelber Rohrkasten (45er)\nRohre: Gelbe Rohre (45er)\nLineale: 24\nStempel: W außer bei SW1 da SW1 Stempel verwenden\nSonstige Infos: ",
+      "updated": "2025-03-10 16:52:42",
+      "anlage": "ZG21"
+    },
+    {
+      "kategorie": "durchmesser",
+      "key": "34",
+      "infos": "Schweißdaten: \nHämmerbacken: 33 wenn nötig (pressmaß über 2mm) oder bei sonderlegierungen\nEinstoßbacken: 34-37 bzw nach pressmaß\nZiehstein: \nEinlaufdüse: 36\nZiehbacken: 30-34  oder 32-36\nTrichter: nein\nWirbelstrom: 2,5 mmm größer\nUltraschall: die letzten 2 2mm kleiner\nScherenmesser: 34 oder 35\nRollen: \nRohrkasten: Gelber Rohrkasten (45er)\nRohre: Gelbe Rohre (45er)\nLineale: 24\nStempel: W außer bei SW1 da SW1 Stempel verwenden\nSonstige Infos: ",
+      "updated": "2025-03-10 16:55:30",
+      "anlage": "ZG21"
+    },
+    {
+      "kategorie": "durchmesser",
+      "key": "35",
+      "infos": "Schweißdaten: \nHämmerbacken: 33 wenn nötig (pressmaß über 2mm) oder bei sonderlegierungen\nEinstoßbacken: 34-37 bzw nach pressmaß\nZiehstein: \nEinlaufdüse: 36\nZiehbacken: 32-36\nTrichter: nein\nWirbelstrom: 2,5 mmm größer\nUltraschall: die letzten 2 2mm kleiner\nScherenmesser: 35 oder 36\nRollen: \nRohrkasten: Gelber Rohrkasten (45er)\nRohre: Gelbe Rohre (45er)\nLineale: 24\nStempel: W außer bei SW1 da SW1 Stempel verwenden\nSonstige Infos: ",
+      "updated": "2025-03-10 16:56:49",
+      "anlage": "ZG21"
+    },
+    {
+      "kategorie": "durchmesser",
+      "key": "36",
+      "infos": "Schweißdaten: \nHämmerbacken: 35 wenn nötig (pressmaß über 2mm) oder bei sonderlegierungen\nEinstoßbacken: 37-40 bzw nach pressmaß\nZiehstein: \nEinlaufdüse: 38\nZiehbacken: 32-36\nTrichter: nein\nWirbelstrom: 2,5 mmm größer\nUltraschall: die letzten 2 2mm kleiner\nScherenmesser: 36 oder 37\nRollen: \nRohrkasten: Gelber Rohrkasten (45er)\nRohre: Gelbe Rohre (45er)\nLineale: 24\nStempel: W außer bei SW1 da SW1 Stempel verwenden\nSonstige Infos: ",
+      "updated": "2025-03-10 16:59:44",
+      "anlage": "ZG21"
+    },
+    {
+      "kategorie": "durchmesser",
+      "key": "37",
+      "infos": "Schweißdaten: \nHämmerbacken: 36 wenn nötig (pressmaß über 2mm) oder bei sonderlegierungen\nEinstoßbacken: 40-43 bzw nach pressmaß\nZiehstein: \nEinlaufdüse: 39\nZiehbacken: 36-38\nTrichter: nein\nWirbelstrom: 2,5 mmm größer\nUltraschall: die letzten 2 2mm kleiner\nScherenmesser: 37 oder 38\nRollen: \nRohrkasten: Gelber Rohrkasten (45er)\nRohre: Gelbe Rohre (45er)\nLineale: 24\nStempel: W außer bei SW1 da SW1 Stempel verwenden\nSonstige Infos: ",
+      "updated": "2025-03-10 17:01:10",
+      "anlage": "ZG21"
+    },
+    {
+      "kategorie": "durchmesser",
+      "key": "38",
+      "infos": "Schweißdaten: \nHämmerbacken: 37 wenn nötig (pressmaß über 2mm) oder bei sonderlegierungen\nEinstoßbacken: 40-43 bzw nach pressmaß\nZiehstein: \nEinlaufdüse: 40\nZiehbacken: 36-38\nTrichter: nein\nWirbelstrom: 2,5 mmm größer\nUltraschall: die letzten 2 2mm kleiner\nScherenmesser: 38 oder 39\nRollen: \nRohrkasten: Gelber Rohrkasten (45er)\nRohre: Gelbe Rohre (45er)\nLineale: 24\nStempel: W außer bei SW1 da SW1 Stempel verwenden\nSonstige Infos: ",
+      "updated": "2025-03-10 17:02:53",
+      "anlage": "ZG21"
+    },
+    {
+      "kategorie": "durchmesser",
+      "key": "DURCHMESSER 19 BIS 24",
+      "infos": "Schweißdaten: \nHämmerbacken: \nEinstoßbacken: \nZiehstein: \nEinlaufdüse: Einlaufdüse 2mm größer als Ziehmaß\nZiehbacken: Ziehbacken nach Ziehmaß 18 - 22 bzw 22 - 26\nTrichter: mit Trichter im 2. Ziehschlitten (bis DRM 27 )\nWirbelstrom: \nUltraschall: \nScherenmesser: Schermesser max 2 mm größer\nRollen: \nRohrkasten: \nRohre: Grüne Rohre (30er) und Grüner  Rohrkasten (30er)\nLineale: 15 er Lineale bis DRM 23 ab 23 18er Lineale verwenden → einstellen mit Einstellstange nach Durchmesser\nStempel: \nSonstige Infos: ",
+      "updated": "2026-05-31 20:18:00",
+      "anlage": "ZG21"
+    },
+    {
+      "kategorie": "durchmesser",
+      "key": "DURCHMESSER 25 BIS 28",
+      "infos": "Schweißdaten: \nHämmerbacken: \nEinstoßbacken: \nZiehstein: \nEinlaufdüse: Einlaufdüse 2mm größer als Ziehmaß\nZiehbacken: Ziehbacken nach Ziehmaß 22 – 26 .. 26 – 30\nTrichter: Trichter 2. Ziehschlitten Raus bei DRM 27\nWirbelstrom: \nUltraschall: \nScherenmesser: Schermesser max 2 mm größer\nRollen: \nRohrkasten: \nRohre: Rote Rohre (35er) und Roter Rohrkasten  (35er)\nLineale: 18 er Lineale → einstellen mit Einstellstange nach Durchmesser\nStempel: \nSonstige Infos: ",
+      "updated": "2026-05-31 20:18:00",
+      "anlage": "ZG21"
+    },
+    {
+      "kategorie": "durchmesser",
+      "key": "DURCHMESSER 28 BIS 31",
+      "infos": "Schweißdaten: \nHämmerbacken: \nEinstoßbacken: \nZiehstein: \nEinlaufdüse: Einlaufdüse 2mm größer als Ziehmaß\nZiehbacken: Ziehbacken nach Ziehmaß 26 – 30 ..30 -34\nTrichter: Trichter 2. Ziehschlitten Raus bei DRM 27\nWirbelstrom: \nUltraschall: \nScherenmesser: Schermesser max 2 mm größer\nRollen: \nRohrkasten: \nRohre: Blaue Rohre (40er) und Roter Rohrkasten  (35er)\nLineale: 21 er Lineale ….Bei DRM 30-31 oben 21er Lineal und unten 24 Lineal  → einstellen mit Einstellstange nach Durchmesser\nStempel: \nSonstige Infos: ",
+      "updated": "2026-05-31 20:18:00",
+      "anlage": "ZG21"
+    },
+    {
+      "kategorie": "durchmesser",
+      "key": "DURCHMESSER 32 BIS 38",
+      "infos": "Schweißdaten: \nHämmerbacken: \nEinstoßbacken: \nZiehstein: \nEinlaufdüse: Einlaufdüse 2mm größer als Ziehmaß\nZiehbacken: Ziehbacken nach Ziehmaß 30 – 34 .. 32 – 36 ..36 -38\nTrichter: Trichter 2. Ziehschlitten Raus bei DRM 27\nWirbelstrom: \nUltraschall: \nScherenmesser: Schermesser max 2 mm größer\nRollen: \nRohrkasten: \nRohre: Gelbe Rohre (45er) und Gelber Rohrkasten  (45er)\nLineale: 24 er Lineale verwenden → einstellen mit Einstellstange nach Durchmesser\nStempel: \nSonstige Infos: ",
+      "updated": "2026-05-31 20:18:00",
+      "anlage": "ZG21"
+    },
+    {
+      "kategorie": "durchmesser",
+      "key": "DURCHMESSER 9 BIS 11,5",
+      "infos": "Schweißdaten: \nHämmerbacken: \nEinstoßbacken: \nZiehstein: \nEinlaufdüse: \nZiehbacken: Ziehbacken bleiben immer gleich\nTrichter: gemessen von welle bis Mitte Stange\nWirbelstrom: \nUltraschall: \nScherenmesser: \nRollen: \nRohrkasten: \nRohre: Rote Rohre (15er) und Roter Rohrkasten\nLineale: Lineale immer die selben einstellen mit Einstellstange nach Durchmesser\nStempel: \nSonstige Infos: ",
+      "updated": "2026-05-31 20:18:00",
+      "anlage": "ZG23"
+    },
+    {
+      "kategorie": "durchmesser",
+      "key": "DURCHMESSER 12-13.5",
+      "infos": "Schweißdaten: \nHämmerbacken: \nEinstoßbacken: \nZiehstein: \nEinlaufdüse: \nZiehbacken: Ziehbacken bleiben immer die gleichen . Blaue Rohre (20er) und Blauer Rohrkasten .\nTrichter: gemessen von welle bis Mitte Stange\nWirbelstrom: \nUltraschall: \nScherenmesser: \nRollen: \nRohrkasten: \nRohre: Blaue Rohre (20er) und Blauer Rohrkasten\nLineale: Lineale immer die selben einstellen mit Einstellstange nach Durchmesser\nStempel: \nSonstige Infos: ",
+      "updated": "2026-05-31 20:18:00",
+      "anlage": "ZG23"
+    },
+    {
+      "kategorie": "durchmesser",
+      "key": "DURCHMESSER 13 BIS 16",
+      "infos": "Schweißdaten: \nHämmerbacken: \nEinstoßbacken: \nZiehstein: \nEinlaufdüse: \nZiehbacken: Ziehbacken nach Ziehmaß 13 - 16 bzw 16,5 – 20\nTrichter: Schermesser max 2 mm größer\nWirbelstrom: \nUltraschall: \nScherenmesser: \nRollen: \nRohrkasten: \nRohre: Gelbe Rohre (20er) und Gelber Rohrkasten (20er)\nLineale: 12 er Lineale → einstellen mit Einstellstange nach Durchmesser\nStempel: \nSonstige Infos: ",
+      "updated": "2026-05-31 20:18:00",
+      "anlage": "ZG24"
+    },
+    {
+      "kategorie": "durchmesser",
+      "key": "DURCHMESSER 17 BIS 22",
+      "infos": "Schweißdaten: \nHämmerbacken: \nEinstoßbacken: \nZiehstein: \nEinlaufdüse: \nZiehbacken: Ziehbacken nach Ziehmaß 16,5 – 20 bzw 26 – 30\nTrichter: Schermesser max 2 mm größer\nWirbelstrom: \nUltraschall: \nScherenmesser: \nRollen: \nRohrkasten: \nRohre: Rote Rohre (25er) und Roter Rohrkasten  (25er)\nLineale: 15 er Lineale → einstellen mit Einstellstange nach Durchmesser\nStempel: \nSonstige Infos: ",
+      "updated": "2026-05-31 20:18:00",
+      "anlage": "ZG24"
+    },
+    {
+      "kategorie": "ring_auf_stange",
+      "key": "KUPFER",
+      "infos": "plastik rollen",
+      "updated": "2025-03-10 16:05:39",
+      "anlage": "ZG10"
+    },
+    {
+      "kategorie": "ring_auf_ring",
+      "key": "S40",
+      "infos": "brechen",
+      "updated": "2025-03-10 16:06:32",
+      "anlage": "ZG10"
+    },
+    {
+      "kategorie": "allgemeine_infos",
+      "key": "SW 1  INFO",
+      "infos": "Bei SW1 Sägeblattschmierung an und ECO Stempel nicht vergessen !!\nab DRM 31 US ausschalten",
+      "updated": "2026-05-31 20:40:12",
+      "anlage": "ZG21"
+    },
+    {
+      "kategorie": "allgemeine_infos",
+      "key": "SÄGEBLATTSCHMIERUNG",
+      "infos": "Bei Folgenden Legierungen Bitte Sägeblattschmierung einschalten\nAlle SW und M Legierungen",
+      "updated": "2026-05-31 20:18:00",
+      "anlage": "ZG21"
+    },
+    {
+      "kategorie": "allgemeine_infos",
+      "key": "ALLE EINSTOSSBACKEN",
+      "infos": "22-25\n25-28\n28-31\n31-34\n34-37\n37-40\n40-43",
+      "updated": "2026-05-31 20:18:00",
+      "anlage": "ZG21"
+    },
+    {
+      "kategorie": "allgemeine_infos",
+      "key": "ALLE ZIEHBACKEN",
+      "infos": "18-22\n22-26\n26-30\n30-34\n32-36\n36-38",
+      "updated": "2026-05-31 20:18:00",
+      "anlage": "ZG21"
+    },
+    {
+      "kategorie": "allgemeine_infos",
+      "key": "SONSTIGES",
+      "infos": "Alle Abmessungen Anhämmern ohne einstoßen\nHämmerbacken immer 1 mm kleiner als Ziehmaß",
+      "updated": "2026-05-31 20:18:00",
+      "anlage": "ZG21"
+    },
+    {
+      "kategorie": "allgemeine_infos",
+      "key": "SW 1  INFO",
+      "infos": "Bei SW1 Sägeblattschmierung an und SW 1 Stempel nicht vergessen !!",
+      "updated": "2026-05-31 20:18:00",
+      "anlage": "ZG23"
+    },
+    {
+      "kategorie": "allgemeine_infos",
+      "key": "SÄGEBLATTSCHMIERUNG",
+      "infos": "Bei Folgenden Legierungen Bitte Sägeblattschmierung einschalten\nAlle SW und M Legierungen",
+      "updated": "2026-05-31 20:18:00",
+      "anlage": "ZG23"
+    },
+    {
+      "kategorie": "allgemeine_infos",
+      "key": "SW 1  INFO",
+      "infos": "Bei SW1 Sägeblattschmierung an und SW 1 Stempel nicht vergessen !!",
+      "updated": "2026-05-31 20:18:00",
+      "anlage": "ZG24"
+    },
+    {
+      "kategorie": "allgemeine_infos",
+      "key": "SÄGEBLATTSCHMIERUNG",
+      "infos": "Bei Folgenden Legierungen Bitte Sägeblattschmierung einschalten\nAlle SW und M Legierungen",
+      "updated": "2026-05-31 20:18:00",
+      "anlage": "ZG24"
+    },
+    {
+      "kategorie": "allgemeine_infos",
+      "key": "ALLE ZIEHBACKEN",
+      "infos": "13-16\n16,5 – 20\n20 – 22",
+      "updated": "2026-05-31 20:18:00",
+      "anlage": "ZG24"
+    },
+    {
+      "kategorie": "allgemeine_infos",
+      "key": "SONSTIGES",
+      "infos": "Hämmerbacken immer 1 mm kleiner als Ziehmaß",
+      "updated": "2026-05-31 20:18:00",
+      "anlage": "ZG24"
+    },
+    {
+      "kategorie": "sonderlegierungen",
+      "key": "KC1",
+      "infos": "Allgemeine Infos: Darf nicht Trocken sein -- einölen\nSchmierung: \nStempel: \nSpezielle Ziehsteine: ",
+      "updated": "2025-03-10 16:04:53"
+    }
+  ]
+}

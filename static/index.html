@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Wieland Umbau Hilfe für Schumag Anlagen</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- PWA: installierbar / offline-fähig -->
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta name="theme-color" content="#CD3700">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Umbau Hilfe">
+</head>
+<body data-page="index">
+    <div id="banner">
+        <h1>Wieland Umbau Hilfe für Schumag Anlagen</h1>
+    </div>
+
+    <div class="container">
+        <div class="suche">
+            <input id="suchfeld" type="text" placeholder="Alles durchsuchen (z.B. Durchmesser, Lineale, Legierung) ...">
+            <button id="such-btn">Suchen</button>
+        </div>
+        <div id="suchergebnisse"></div>
+
+        <div id="anlagen-bereich"></div>
+
+        <div class="button-grid" style="margin-top:24px;">
+            <a href="anlage.html?global=sonderlegierungen">
+                <button class="sekundaer">Sonderlegierungen</button>
+            </a>
+        </div>
+    </div>
+
+    <script src="db_local.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

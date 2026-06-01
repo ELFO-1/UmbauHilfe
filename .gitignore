@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+
+# Node / Capacitor
+node_modules/
+
+# Android-Build-Artefakte (werden neu gebaut)
+android/.gradle/
+android/build/
+android/app/build/
+android/capacitor-cordova-android-plugins/
+android/local.properties
+*.apk
+
+# DB-Backups (vom Programm erzeugt)
+schumag_backup_*.db
+
+# altes Archiv (kann gelöscht werden)
+_alt_archiv/
+
+# Import-Backup
+schumag.db.vor_import_backup

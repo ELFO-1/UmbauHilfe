@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Umbau Hilfe</string>
+    <string name="title_activity_main">Umbau Hilfe</string>
+    <string name="package_name">de.wieland.umbauhilfe</string>
+    <string name="custom_url_scheme">de.wieland.umbauhilfe</string>
+</resources>
