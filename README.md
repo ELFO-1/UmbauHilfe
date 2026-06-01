@@ -1,5 +1,7 @@
 # Wieland Umbau Hilfe – Schumag Anlagen
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 Nachschlage- und Pflege-Tool für die Umbau-/Einstelldaten der Schumag-Anlagen
 (Rund-, Profil- und Spezialschumag). Die beiden früheren Projekte (HTML+CSV
 und Python+SQLite) sind jetzt **ein** Programm mit **einer** Datenbank.
