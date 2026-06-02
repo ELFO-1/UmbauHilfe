@@ -8,6 +8,7 @@ _alt_archiv
 android
 screenshots
 data
+.env
 *.apk
 *.db
 *.db.*

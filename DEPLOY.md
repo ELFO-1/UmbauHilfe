@@ -45,28 +45,37 @@ Oder in **Portainer**: *Stacks → Add stack*, Inhalt der `docker-compose.yml`
 einfügen, deployen. Der Port ist absichtlich nur an `127.0.0.1` gebunden – im
 LAN ist nichts offen, nur Tailscale kommt dran.
 
-Kurz testen (auf dem Server):
+**Host-Port:** Standard ist 8000. Ist der belegt (auf diesem Pi z.B. durch
+Portainer), den Port per `.env` neben der `docker-compose.yml` setzen:
 
 ```bash
-curl -s localhost:8000/api/config | head -c 80
+echo "HOST_PORT=8088" > ~/umbauhilfe/.env
+```
+
+Kurz testen (auf dem Server, hier mit 8088):
+
+```bash
+curl -s localhost:8088/api/config | head -c 80
 ```
 
 ## 4. Per Tailscale privat erreichbar machen
 
 Tailscale läuft bei dir bereits auf dem Pi. Einmalig den Dienst veröffentlichen
-(HTTPS, nur im Tailnet sichtbar – **kein** Funnel):
+(HTTPS, nur im Tailnet sichtbar – **kein** Funnel). Hier auf eigenem HTTPS-Port
+**8443**, weil Port 443 schon vom Immich-Funnel belegt ist:
 
 ```bash
-sudo tailscale serve --bg 8000
-sudo tailscale serve status      # zeigt die URL
+sudo tailscale serve --bg --https=8443 http://127.0.0.1:8088
+sudo tailscale serve status      # zeigt beide Mappings (Immich + Umbauhilfe)
 ```
 
-Ergebnis ist eine Adresse wie `https://<hostname>.<tailnet>.ts.net/`.
+Ergebnis ist die Adresse `https://lucy.tail14c57a.ts.net:8443/`.
 Diese im Browser/Handy öffnen → Webinterface. Auf dem Handy über „Zum
 Startbildschirm hinzufügen" als PWA installieren – immer live, immer dieselbe DB.
 
-> Funnel (öffentliches Internet) wird hier bewusst **nicht** benutzt. Falls du
-> später doch öffentlichen Zugriff willst: `sudo tailscale funnel --bg 8000`.
+> Ist Port 443 frei, geht auch der einfache `sudo tailscale serve --bg 8088`
+> (dann URL ohne Port). Funnel (öffentliches Internet) wird hier bewusst
+> **nicht** benutzt.
 
 ## 5. Terminal von überall
 
@@ -74,20 +83,27 @@ Startbildschirm hinzufügen" als PWA installieren – immer live, immer dieselbe
 Server-DB. Nur die Server-Adresse setzen:
 
 ```bash
-export SCHUMAG_API=https://<hostname>.<tailnet>.ts.net
+export SCHUMAG_API=https://lucy.tail14c57a.ts.net:8443
 python3 cli.py
 ```
 
-(Dauerhaft z.B. in `~/.bashrc` bzw. `~/.config/fish/config.fish` setzen.)
+Dauerhaft (fish): `set -Ux SCHUMAG_API https://lucy.tail14c57a.ts.net:8443`.
 Ohne die Variable spricht es `http://localhost:8000` an – praktisch zum lokalen
 Testen.
 
 ## Updates
 
-Code geändert? Neu bauen, die DB im `data/`-Volume bleibt erhalten:
+Vom Arbeitsrechner aus per Skript (überträgt den Code und baut neu; das
+`data/`-Volume und die `.env` bleiben unberührt):
 
 ```bash
-docker compose up -d --build
+./deploy.sh
+```
+
+Oder direkt auf dem Server:
+
+```bash
+cd ~/umbauhilfe && docker compose up -d --build
 ```
 
 ## Backup

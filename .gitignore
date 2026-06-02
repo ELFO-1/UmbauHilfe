@@ -21,3 +21,7 @@ _alt_archiv/
 
 # Import-Backup
 schumag.db.vor_import_backup
+
+# Docker-Laufzeit (Daten-Volume + lokale Server-Konfiguration)
+data/
+.env
