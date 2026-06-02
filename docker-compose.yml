@@ -1,0 +1,23 @@
+# Wieland-Umbau-Hilfe als Docker-Dienst (z.B. als Portainer-Stack).
+#
+# Die Datenbank liegt im Ordner ./data neben dieser Datei (Bind-Mount) – dort
+# ist sie sichtbar, leicht zu sichern und übersteht Container-Neustarts/Updates.
+# WICHTIG: vor dem ersten Start die bestehende schumag.db nach ./data/ kopieren,
+# sonst startet der Dienst mit einer leeren (aber funktionierenden) DB.
+#
+# Der Port wird absichtlich nur an 127.0.0.1 gebunden: von außen erreichbar
+# ist der Dienst ausschließlich über Tailscale Serve (siehe DEPLOY.md), nicht
+# über das lokale Netz.
+
+services:
+  umbauhilfe:
+    build: .
+    image: umbauhilfe:latest
+    container_name: umbauhilfe
+    restart: unless-stopped
+    environment:
+      - SCHUMAG_DB=/data/schumag.db
+    volumes:
+      - ./data:/data
+    ports:
+      - "127.0.0.1:8000:8000"
