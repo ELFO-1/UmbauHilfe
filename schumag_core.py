@@ -11,9 +11,13 @@ SQLite fürs Terminal).
 Es werden keine externen Bibliotheken benötigt (nur Python-Standardlib).
 """
 
+import os
 import sqlite3
 
-DB_NAME = "schumag.db"
+# Pfad zur Datenbank. Per Umgebungsvariable SCHUMAG_DB überschreibbar – im
+# Docker-Container z.B. /data/schumag.db, damit die DB im gemounteten Volume
+# liegt und Updates/Neustarts übersteht. Lokal bleibt es bei schumag.db.
+DB_NAME = os.environ.get("SCHUMAG_DB", "schumag.db")
 
 
 # ---------------------------------------------------------------------------
@@ -240,7 +244,11 @@ class SchumagDB:
     def backup(self):
         import shutil
         from datetime import datetime
-        ziel = f"schumag_backup_{datetime.now():%Y%m%d_%H%M%S}.db"
+        # Backup neben die DB legen (gleiches Verzeichnis), damit es im selben
+        # Volume landet und nicht im zufälligen Arbeitsverzeichnis.
+        ordner = os.path.dirname(os.path.abspath(DB_NAME))
+        ziel = os.path.join(
+            ordner, f"schumag_backup_{datetime.now():%Y%m%d_%H%M%S}.db")
         shutil.copy2(DB_NAME, ziel)
         return ziel
 

@@ -1,0 +1,20 @@
+# Nicht ins Image kopieren – klein & sauber halten
+.git
+.gitignore
+node_modules
+__pycache__
+*.pyc
+_alt_archiv
+android
+screenshots
+data
+.env
+*.apk
+*.db
+*.db.*
+schumag_backup_*.db
+README.md
+DEPLOY.md
+package.json
+package-lock.json
+capacitor.config.json

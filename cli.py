@@ -3,10 +3,18 @@
 """
 Terminal-Programm der Wieland-Umbau-Hilfe.
 
-Benutzt die gemeinsame Datenschicht aus schumag_core.py – also dieselbe
-Datenbank wie das Webinterface. Generisch über alle Kategorien, mit
-geführter Feld-für-Feld-Eingabe (z.B. Durchmesser, Sonderlegierungen),
-Suche, Backup und Löschen.
+Arbeitet über die REST-API (api_client.py) gegen die Datenbank auf dem Server –
+also GENAU dieselbe Datenbank wie Webinterface und Handy-App. Egal von welchem
+Rechner aus du das Terminal startest: es gibt nur eine Quelle der Wahrheit.
+Generisch über alle Kategorien, mit geführter Feld-für-Feld-Eingabe (z.B.
+Durchmesser, Sonderlegierungen), Suche, Backup und Löschen.
+
+Die Konfiguration (Anlagen/Kategorien/Felder) ist das Schema und kommt weiterhin
+aus schumag_core.py – sie wird nicht gespeichert, nur die Daten laufen über die
+API.
+
+Server-Adresse über  SCHUMAG_API  setzen (siehe api_client.py), Standard
+ist  http://localhost:8000 .
 
 Start:  python3 cli.py
 """
@@ -14,9 +22,10 @@ Start:  python3 cli.py
 from time import sleep
 
 from schumag_core import (
-    SchumagDB, KATEGORIEN, ANLAGEN, GLOBALE_KATEGORIEN,
+    KATEGORIEN, ANLAGEN, GLOBALE_KATEGORIEN,
     felder_zu_infos, infos_zu_felder,
 )
+from api_client import SchumagAPI, APIError
 
 # colorama ist optional – ohne läuft es einfach ohne Farben.
 try:
@@ -217,28 +226,42 @@ def hauptmenue():
 
 
 def main():
-    db = SchumagDB()
+    db = SchumagAPI()
+    # Beim Start einmal prüfen, ob der Server überhaupt erreichbar ist –
+    # sonst läuft man in jedes Menü und bekommt erst dort einen Fehler.
+    try:
+        db.ping()
+    except APIError as e:
+        print(farbe(str(e), "red"))
+        print("Läuft der Webserver?  Adresse per  SCHUMAG_API  setzen "
+              "(Standard: http://localhost:8000).")
+        return
     try:
         while True:
-            wahl = hauptmenue()
-            if wahl == "1":
-                anlagen_uebersicht()
-            elif wahl == "2":
-                anlage_auswahl(db)
-            elif wahl == "3":
-                meta_suche(db)
-            elif wahl == "4":
-                kategorie_menue(db, GLOBALE_KATEGORIEN[0])
-            elif wahl == "5":
-                ziel = db.backup()
-                print(farbe(f"Backup erstellt: {ziel}", "green"))
-                sleep(1)
-            elif wahl == "q":
-                print("Beendet.")
-                break
-            else:
-                print("Ungültige Eingabe!")
-                sleep(1)
+            try:
+                wahl = hauptmenue()
+                if wahl == "1":
+                    anlagen_uebersicht()
+                elif wahl == "2":
+                    anlage_auswahl(db)
+                elif wahl == "3":
+                    meta_suche(db)
+                elif wahl == "4":
+                    kategorie_menue(db, GLOBALE_KATEGORIEN[0])
+                elif wahl == "5":
+                    ziel = db.backup()
+                    print(farbe(f"Backup erstellt (auf dem Server): {ziel}", "green"))
+                    sleep(1)
+                elif wahl == "q":
+                    print("Beendet.")
+                    break
+                else:
+                    print("Ungültige Eingabe!")
+                    sleep(1)
+            except APIError as e:
+                # Verbindung während des Betriebs verloren – nicht abstürzen.
+                print(farbe(f"\n{e}", "red"))
+                sleep(2)
     finally:
         db.close()
 

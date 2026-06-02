@@ -11,7 +11,8 @@ und Python+SQLite) sind jetzt **ein** Programm mit **einer** Datenbank.
 | Datei | Aufgabe |
 |-------|---------|
 | `schumag_core.py` | Gemeinsame Datenschicht + Konfiguration (Anlagen, Kategorien, Felder). Wird von Terminal **und** Web benutzt. |
-| `cli.py` | Terminal-Programm |
+| `cli.py` | Terminal-Programm (spricht die REST-API, siehe `api_client.py`) |
+| `api_client.py` | HTTP-Client: gibt dem Terminal dieselbe Schnittstelle wie die DB, aber über die API |
 | `webserver.py` | Webserver (REST-API + liefert das Webinterface) |
 | `static/` | Webinterface (HTML/CSS/JS) + PWA (Manifest, Service-Worker, Icons) + Offline-Logik (`db_local.js`, `seed.json`) |
 | `import_csv.py` | Einmaliger Import der alten CSV-Dateien in die DB |
@@ -29,6 +30,15 @@ Es werden **keine** externen Bibliotheken benötigt (nur Python-Standardlib).
 ```
 python3 cli.py
 ```
+Das Terminal arbeitet über die REST-API (`api_client.py`) gegen denselben
+Server wie Web und Handy – es gibt nur **eine** Datenbank. Der Server wird über
+`SCHUMAG_API` gewählt (Standard `http://localhost:8000`), z.B.:
+```
+export SCHUMAG_API=https://umbauhilfe.<tailnet>.ts.net
+python3 cli.py
+```
+Für den zentralen Betrieb als Docker-Dienst (privat im Tailnet) siehe
+[`DEPLOY.md`](DEPLOY.md).
 
 **Webinterface:**
 ```
