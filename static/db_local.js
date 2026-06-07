@@ -91,19 +91,31 @@ const LocalBackend = (() => {
   async function init() {
     const db = await openDB();
     const geladen = await asPromise(tx(db, META, "readonly").get("seed_geladen"));
-    const cfgRec = await asPromise(tx(db, META, "readonly").get("config"));
 
-    if (geladen && cfgRec) {
-      _config = cfgRec.value;
-      return;
+    // Die CONFIG (Anlagen/Kategorien/Felder) folgt IMMER der App-Version aus
+    // seed.json – so erscheinen neue Kategorien/Felder auch nach einem Update,
+    // ohne die App-Daten zu löschen. Die DATEN werden dagegen nur EINMAL
+    // eingespielt (seed_geladen), damit eigene Eingaben erhalten bleiben.
+    let seed = null;
+    try {
+      seed = await (await fetch("seed.json")).json();
+    } catch (e) {
+      // Offline ohne gebündelte seed.json: gespeicherte Config weiterverwenden.
     }
 
-    // seed.json holen und einspielen
-    const seed = await (await fetch("seed.json")).json();
-    _config = seed.config;
+    if (seed) {
+      _config = seed.config;
+      await asPromise(tx(db, META, "readwrite").put({ name: "config", value: _config }));
+    } else {
+      const cfgRec = await asPromise(tx(db, META, "readonly").get("config"));
+      _config = cfgRec ? cfgRec.value : null;
+    }
 
+    if (geladen) return;   // Daten bereits vorhanden -> nicht erneut seeden
+
+    // Erstbefüllung der Einträge aus seed.json.
     const store = tx(db, STORE, "readwrite");
-    for (const e of seed.eintraege) {
+    for (const e of (seed ? seed.eintraege : [])) {
       const rec = {
         id: makeId(e.kategorie, e.anlage, e.key),
         kategorie: e.kategorie,
@@ -114,7 +126,6 @@ const LocalBackend = (() => {
       };
       store.put(rec);
     }
-    await asPromise(tx(db, META, "readwrite").put({ name: "config", value: _config }));
     await asPromise(tx(db, META, "readwrite").put({ name: "seed_geladen", value: true }));
   }
 
