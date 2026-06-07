@@ -83,7 +83,7 @@ async function sucheStarten(begriff) {
         return `<div class="karte">
             <h3>${esc(t.key)}</h3>
             <div class="meta">${esc(ort)} · Stand ${esc(t.updated)}</div>
-            <pre>${esc(t.infos)}</pre>
+            ${eintragInhaltHtml(t, t.kategorie)}
         </div>`;
     }).join("");
 }
@@ -131,7 +131,7 @@ function kategorieWaehlen(kat) {
     AKTUELLE_KAT = kat;
     document.querySelectorAll("#tabs button").forEach((b) =>
         b.classList.toggle("aktiv", b.dataset.kat === kat));
-    formularZeigen();           // leeres "Hinzufügen"-Formular
+    formularEinklappen();       // nur der "Neuer Eintrag"-Knopf
     listeLaden();
 }
 
@@ -148,7 +148,18 @@ function felderInputs(kat, werte) {
             <textarea data-infos>${esc(werte.__infos || "")}</textarea>`;
 }
 
-function formularZeigen(eintrag) {
+// Eingeklappter Standardzustand: nur ein schlanker "Neuer Eintrag"-Knopf,
+// damit die Einträge sofort sichtbar sind und nicht das große Formular.
+function formularEinklappen() {
+    const bereich = document.getElementById("formular-bereich");
+    bereich.innerHTML =
+        `<button id="neu-aufklappen-btn" class="neu-toggle">➕ Neuer Eintrag</button>`;
+    document.getElementById("neu-aufklappen-btn").addEventListener("click", () =>
+        formularAufklappen());
+}
+
+// Ausgeklappt: volles Formular. Ohne Eintrag = neu anlegen, mit Eintrag = bearbeiten.
+function formularAufklappen(eintrag) {
     const kat = AKTUELLE_KAT;
     const bearbeiten = !!eintrag;
     const keyLabel = CONFIG.kategorien[kat].label;
@@ -169,16 +180,14 @@ function formularZeigen(eintrag) {
             <div id="feld-infos">${felderInputs(kat, werte)}</div>
             <div class="aktionen">
                 <button id="speichern-btn">Speichern</button>
-                ${bearbeiten ? '<button id="abbrechen-btn" class="sekundaer">Abbrechen</button>' : ""}
+                <button id="abbrechen-btn" class="sekundaer">Abbrechen</button>
             </div>
         </div>`;
 
     document.getElementById("speichern-btn").addEventListener("click", () =>
         speichern(bearbeiten));
-    if (bearbeiten) {
-        document.getElementById("abbrechen-btn").addEventListener("click", () =>
-            formularZeigen());
-    }
+    document.getElementById("abbrechen-btn").addEventListener("click", () =>
+        formularEinklappen());
 }
 
 function formularDatenLesen() {
@@ -202,7 +211,7 @@ async function speichern(bearbeiten) {
     if (!daten.key.trim()) { alert("Bitte eine Bezeichnung eingeben."); return; }
     const antwort = await apiPost(bearbeiten ? "/api/update" : "/api/add", daten);
     if (antwort.ok) {
-        formularZeigen();        // zurück zum leeren Formular
+        formularEinklappen();    // zurück zum eingeklappten Knopf
         listeLaden();
     } else {
         alert(antwort.fehler || "Speichern fehlgeschlagen.");
@@ -210,11 +219,52 @@ async function speichern(bearbeiten) {
 }
 
 // -- Liste ------------------------------------------------------------------
+
+// Sortier-Einstufung eines Schlüssels: Bereiche (von-bis) zuerst, dann
+// einzelne Zahlen (numerisch, nicht als Text), sonstiger Text zuletzt.
+// "BIS", "-"/"–" und Komma-Dezimalzahlen (z.B. "9 BIS 11,5") werden erkannt.
+function sortKeyInfo(key) {
+    const k = (key || "").toString();
+    const zahlen = k.match(/\d+(?:[.,]\d+)?/g);
+    const ersteZahl = zahlen ? parseFloat(zahlen[0].replace(",", ".")) : NaN;
+    const istBereich = /\bbis\b/i.test(k) || /\d\s*[-–]\s*\d/.test(k);
+    let gruppe;
+    if (istBereich) gruppe = 0;                                   // von-bis zuerst
+    else if (!isNaN(ersteZahl) && /^\s*\d/.test(k)) gruppe = 1;   // einzelne Zahl
+    else gruppe = 2;                                              // Text (z.B. Profile)
+    return { gruppe, zahl: isNaN(ersteZahl) ? Infinity : ersteZahl, text: k };
+}
+
+function eintraegeSortieren(eintraege) {
+    return eintraege.slice().sort((a, b) => {
+        const ka = sortKeyInfo(a.key), kb = sortKeyInfo(b.key);
+        if (ka.gruppe !== kb.gruppe) return ka.gruppe - kb.gruppe;
+        if (ka.zahl !== kb.zahl) return ka.zahl - kb.zahl;
+        return ka.text.localeCompare(kb.text, "de");
+    });
+}
+
+// Karten-Inhalt: bei Kategorien mit festen Feldern nur die AUSGEFÜLLTEN Felder
+// zeigen (leere "Ziehstein:", "Schweißdaten:" … werden ausgeblendet).
+function eintragInhaltHtml(e, kat) {
+    const meta = CONFIG.kategorien[kat];
+    if (meta.felder && e.felder) {
+        const zeilen = meta.felder
+            .filter((f) => (e.felder[f] || "").trim() !== "")
+            .map((f) => `<div class="feldzeile"><span class="feldname">${esc(f)}</span>` +
+                        `<span class="feldwert">${esc(e.felder[f])}</span></div>`);
+        return zeilen.length
+            ? `<div class="felder">${zeilen.join("")}</div>`
+            : `<div class="leer-hinweis">— keine Angaben —</div>`;
+    }
+    return `<pre>${esc(e.infos)}</pre>`;
+}
+
 async function listeLaden() {
     const kat = AKTUELLE_KAT;
     let pfad = "/api/list?kat=" + encodeURIComponent(kat);
     if (AKTUELLE_ANLAGE) pfad += "&anlage=" + encodeURIComponent(AKTUELLE_ANLAGE);
-    const eintraege = await apiGet(pfad);
+    const eintraege = eintraegeSortieren(await apiGet(pfad));
 
     const bereich = document.getElementById("liste-bereich");
     if (!eintraege.length) {
@@ -225,7 +275,7 @@ async function listeLaden() {
         <div class="karte">
             <h3>${esc(e.key)}</h3>
             <div class="meta">Stand ${esc(e.updated)}</div>
-            <pre>${esc(e.infos)}</pre>
+            ${eintragInhaltHtml(e, kat)}
             <div class="aktionen">
                 <button class="sekundaer" data-edit="${i}">Bearbeiten</button>
                 <button class="gefahr" data-del="${i}">Löschen</button>
@@ -234,7 +284,7 @@ async function listeLaden() {
 
     bereich.querySelectorAll("[data-edit]").forEach((b) =>
         b.addEventListener("click", () => {
-            formularZeigen(eintraege[b.dataset.edit]);
+            formularAufklappen(eintraege[b.dataset.edit]);
             window.scrollTo({ top: 0, behavior: "smooth" });
         }));
     bereich.querySelectorAll("[data-del]").forEach((b) =>

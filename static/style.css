@@ -88,5 +88,16 @@ button.gefahr:hover { background-color: #962d22; }
 .formular textarea { min-height: 90px; }
 .formular .aktionen { margin-top: 12px; display: flex; gap: 8px; }
 
+/* Aufklapp-Knopf "Neuer Eintrag" (eingeklappter Zustand) */
+.neu-toggle { width: 100%; margin-bottom: 16px; font-size: 1.05rem; }
+
+/* Karten-Felder (nur ausgefüllte Felder werden gezeigt) */
+.karte .felder { margin: 0 0 10px; }
+.feldzeile { display: flex; gap: 8px; padding: 3px 0; border-bottom: 1px solid #eee; }
+.feldzeile:last-child { border-bottom: none; }
+.feldname { font-weight: bold; flex: 0 0 38%; color: #444; }
+.feldwert { flex: 1; white-space: pre-wrap; word-break: break-word; }
+.leer-hinweis { color: #999; font-style: italic; margin: 0 0 10px; }
+
 .hinweis { color: #ffe; text-align: center; padding: 20px; }
 .gruppe-titel { color: #fff; margin: 18px 0 4px; }
