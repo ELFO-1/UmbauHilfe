@@ -35,8 +35,10 @@ DB_NAME = os.environ.get("SCHUMAG_DB", "schumag.db")
 # das ursprüngliche Terminal-Programm schon gemacht hat. Dadurch sind die
 # bereits vorhandenen Daten weiter lesbar.
 
+# "Schweißdaten" ist eine eigene Kategorie (eigener Tab) – früher war es hier
+# nur ein einzelnes Feld, wurde aber nie genutzt.
 DURCHMESSER_FELDER = [
-    "Schweißdaten", "Hämmerbacken", "Einstoßbacken", "Ziehstein",
+    "Hämmerbacken", "Einstoßbacken", "Ziehstein",
     "Einlaufdüse", "Ziehbacken", "Trichter", "Wirbelstrom", "Ultraschall",
     "Scherenmesser", "Rollen", "Rohrkasten", "Rohre", "Lineale", "Stempel",
     "Sonstige Infos",
@@ -46,8 +48,15 @@ SONDERLEGIERUNG_FELDER = [
     "Allgemeine Infos", "Schmierung", "Stempel", "Spezielle Ziehsteine",
 ]
 
+# Schweißdaten gibt es nur bei wenigen Anlagen (ZG25, ZG19). Die Bezeichnung
+# ist Freitext (z.B. "6 BIS 10,5", "Rund 8", "Vierkant 10", Profilname).
+SCHWEISSDATEN_FELDER = [
+    "Legierung", "Stufe", "Backenabstand", "Druck", "Automatischer Ausschalter",
+]
+
 KATEGORIEN = {
     "durchmesser":       {"label": "Durchmesser",      "key": "durchmesser",  "anlage": True,  "felder": DURCHMESSER_FELDER},
+    "schweissdaten":     {"label": "Schweißdaten",     "key": "bezeichnung",  "anlage": True,  "felder": SCHWEISSDATEN_FELDER},
     "profile":           {"label": "Profile",          "key": "bezeichnung",  "anlage": True,  "felder": None},
     "flachkant":         {"label": "Flachkant",        "key": "bezeichnung",  "anlage": True,  "felder": None},
     "vierkant":          {"label": "Vierkant",         "key": "bezeichnung",  "anlage": True,  "felder": None},
@@ -59,11 +68,11 @@ KATEGORIEN = {
 
 # Welche Kategorien hat welche Anlage? (Gruppen wie im Original-Terminal.)
 ANLAGEN = {
-    "ZG25": {"gruppe": "Rundschumag",   "kategorien": ["durchmesser", "allgemeine_infos"]},
+    "ZG25": {"gruppe": "Rundschumag",   "kategorien": ["durchmesser", "schweissdaten", "allgemeine_infos"]},
     "ZG23": {"gruppe": "Rundschumag",   "kategorien": ["durchmesser", "allgemeine_infos"]},
     "ZG24": {"gruppe": "Rundschumag",   "kategorien": ["durchmesser", "allgemeine_infos"]},
     "ZG21": {"gruppe": "Rundschumag",   "kategorien": ["durchmesser", "allgemeine_infos"]},
-    "ZG19": {"gruppe": "Profilschumag", "kategorien": ["profile", "flachkant", "vierkant", "allgemeine_infos"]},
+    "ZG19": {"gruppe": "Profilschumag", "kategorien": ["profile", "flachkant", "vierkant", "schweissdaten", "allgemeine_infos"]},
     "ZG26": {"gruppe": "Profilschumag", "kategorien": ["profile", "flachkant", "vierkant", "allgemeine_infos"]},
     "ZG10": {"gruppe": "Spezialschumag","kategorien": ["ring_auf_stange", "ring_auf_ring", "allgemeine_infos"]},
 }

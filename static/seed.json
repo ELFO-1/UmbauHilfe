@@ -5,6 +5,7 @@
         "gruppe": "Rundschumag",
         "kategorien": [
           "durchmesser",
+          "schweissdaten",
           "allgemeine_infos"
         ]
       },
@@ -35,6 +36,7 @@
           "profile",
           "flachkant",
           "vierkant",
+          "schweissdaten",
           "allgemeine_infos"
         ]
       },
@@ -62,7 +64,6 @@
         "key": "durchmesser",
         "anlage": true,
         "felder": [
-          "Schweißdaten",
           "Hämmerbacken",
           "Einstoßbacken",
           "Ziehstein",
@@ -78,6 +79,18 @@
           "Lineale",
           "Stempel",
           "Sonstige Infos"
+        ]
+      },
+      "schweissdaten": {
+        "label": "Schweißdaten",
+        "key": "bezeichnung",
+        "anlage": true,
+        "felder": [
+          "Legierung",
+          "Stufe",
+          "Backenabstand",
+          "Druck",
+          "Automatischer Ausschalter"
         ]
       },
       "profile": {

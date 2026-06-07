@@ -12,7 +12,7 @@
  * holt sich der Browser die neuen Dateien.
  */
 
-const CACHE_VERSION = "wuh-v2";
+const CACHE_VERSION = "wuh-v4";
 const APP_SHELL = [
   "./",
   "./index.html",
